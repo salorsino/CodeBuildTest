@@ -6,6 +6,7 @@ phases:
       - cd mobileapp_salTest && zip -r ../archive.zip ./*
   post_build:
     commands:
+      - pwd
       - echo "Updating Lambda"
       - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://archive.zip
       - echo "DONE!"
