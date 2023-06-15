@@ -1,5 +1,6 @@
 export const handler = async(event) => {
-    console.log('yer')
+    console.log('THIS BETTER WORK');
+    console.log('for sure worked')
     const resp = getDashboadInfo();
     return resp;
 };
