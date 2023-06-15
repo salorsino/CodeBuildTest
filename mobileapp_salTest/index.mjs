@@ -1,6 +1,5 @@
 export const handler = async(event) => {
     const resp = getDashboadInfo();
-    
     return resp;
 };
 
