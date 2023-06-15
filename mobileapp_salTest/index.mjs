@@ -1,4 +1,5 @@
 export const handler = async(event) => {
+    console.log('yer')
     const resp = getDashboadInfo();
     return resp;
 };
