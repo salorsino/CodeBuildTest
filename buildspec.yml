@@ -3,7 +3,7 @@ phases:
   build:
     commands:
       - echo "Zipping up function"
-      - zip -r function.zip mobileapp_salTest
+      - zip function.zip mobileapp_salTest
   post_build:
     commands:
       - echo "Updating Lambda"
