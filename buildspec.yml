@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - echo "Zipping up function"
+      - zip -r function.zip mobileapp_salTest
+  post_build:
+    commands:
+      - echo "Updating Lambda"
+      - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://function.zip
+      - echo "DONE!"
