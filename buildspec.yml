@@ -9,6 +9,8 @@ phases:
     commands:
       - cd ..
       - echo "Updating Lambda"
-      - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://salTest.zip
+      - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://salTest.zip >> salTest.json
+      - cat salTest.json
+      - aws lambda publish-version --function
       - aws lambda update-function-code --function-name mobileapp_getDashboardInfo --zip-file fileb://getDashboardInfo.zip
       - echo "DONE!"
