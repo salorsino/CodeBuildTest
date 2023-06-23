@@ -11,7 +11,7 @@ phases:
       - cd ..
       - echo "Updating Lambda"
       - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://salTest.zip
-      - aws lambda publish-version --function-name mobileapp_salTest --description "Testing from codebuild"
+      - aws lambda publish-version --function-name mobileapp_salTest --description 'Testing from codebuild'
       - aws lambda update-alias --function-name mobileapp_salTest --name QA
       - aws lambda update-function-code --function-name mobileapp_getDashboardInfo --zip-file fileb://getDashboardInfo.zip
       - echo "DONE!"
