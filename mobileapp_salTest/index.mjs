@@ -1,5 +1,5 @@
 export const handler = async(event) => {
-    console.log("Here we go.");
+    console.log("New Version");
 };
 
 
