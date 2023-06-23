@@ -15,7 +15,7 @@ phases:
       - aws lambda publish-version --function-name mobileapp_salTest --description 'Testing from codebuild' >> salTestOutput.json
       - sleep 2
       - cat salTestOutput.json
-      - salTestVersion=$(jq '.Version' salTestOutput.json)
+      - salTestVersion=$(jq '.Version | tonumber' salTestOutput.json)
       - aws lambda update-alias --function-name mobileapp_salTest --name QA --function-version ${salTestVersion}
       - aws lambda update-function-code --function-name mobileapp_getDashboardInfo --zip-file fileb://getDashboardInfo.zip
       - echo "DONE!"
