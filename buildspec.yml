@@ -4,7 +4,7 @@ phases:
     commands:
       - echo "Zipping up function"
       - cd mobileapp_salTest && zip -r ../archive.zip ./*
-      - cd ../mobileapp_salTest && zip -r ../archive.zip ./*
+      - cd ../mobileapp_getDashboardInfo && zip -r ../archive.zip ./*
   post_build:
     commands:
       - cd ..
