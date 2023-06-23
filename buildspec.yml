@@ -3,12 +3,12 @@ phases:
   build:
     commands:
       - echo "Zipping up function"
-      - cd mobileapp_salTest && zip -r ../archive.zip ./*
-      - cd ../mobileapp_getDashboardInfo && zip -r ../archive.zip ./*
+      - cd mobileapp_salTest && zip -r ../salTest.zip ./*
+      - cd ../mobileapp_getDashboardInfo && zip -r ../getDashboardInfo.zip ./*
   post_build:
     commands:
       - cd ..
       - echo "Updating Lambda"
-      - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://archive.zip
-      - aws lambda update-function-code --function-name mobileapp_getDashboardInfo --zip-file fileb://archive.zip
+      - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://salTest.zip
+      - aws lambda update-function-code --function-name mobileapp_getDashboardInfo --zip-file fileb://getDashboardInfo.zip
       - echo "DONE!"
