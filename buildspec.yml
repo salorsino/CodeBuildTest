@@ -7,10 +7,11 @@ phases:
       - cd ../mobileapp_getDashboardInfo && zip -r ../getDashboardInfo.zip ./*
   post_build:
     commands:
+      - yum install jq
       - cd ..
       - echo "Updating Lambda"
-      - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://salTest.zip >> salTest.json
-      - cat salTest.json
-      - aws lambda publish-version --function
+      - aws lambda update-function-code --function-name mobileapp_salTest --zip-file fileb://salTest.zip
+      - aws lambda publish-version --function-name mobileapp_salTest --description "Testing from codebuild" >> salTestOutput.json
+      - aws lambda update-alias --function-name mobileapp_salTest --name QA
       - aws lambda update-function-code --function-name mobileapp_getDashboardInfo --zip-file fileb://getDashboardInfo.zip
       - echo "DONE!"
